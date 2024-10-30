@@ -25,11 +25,11 @@ void dialogue(int* task, int* n){
             int numb_insert = 0;
             printf("Enter the index to which you want to insert the number:\n");
             int y1 = input_int_for_ind_insert(&ind_insert);
-            printf("Error code ---> %d\n", y1);
+            printf("                                         Error code ---> %d    \n", y1);
             
             printf("Enter the number you want to add to the array:\n");
             int y2 = input_int(&numb_insert);
-            printf("Error code ---> %d\n", y2);
+            printf("                                         Error code ---> %d    ", y2);
 
             arr = insert(&*arr, ind_insert, numb_insert, &*n, &k);
             array_output(&*n, &*arr, &k);
@@ -40,7 +40,7 @@ void dialogue(int* task, int* n){
             int ind_delete;
             printf("Enter the index which you want to delete:\n");
             int y3 = input_int_for_ind_delete(&ind_delete, &*n);
-            printf("Error code ---> %d\n", y3);
+            printf("                                         Error code ---> %d    ", y3);
 
             arr = delete(&*arr, &*n, ind_delete, &k);
             array_output(&*n, &*arr, &k);
