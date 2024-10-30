@@ -1,19 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "library.h"
+#define N 10
 
 void dialogue(int* task, int* n){
-    *n = 0;
-    int* arr;
-    arr = (int*)malloc(*n * sizeof(int));
+    int* arr = (int*)calloc(N, N * sizeof(int));
+    int k = N;
     while (*task != 6){
         int y = input_int_for_task(&*task);
         printf("Error code for command ---> %d\n", y);
         if (*task == 1){ 
             printf("You are starting initialization\n");
-            *n = 0;
-            initialization(&*task, &*n, &*arr);
-            array_output(&*n, &*arr);
+            *n = 1;
+            arr = initialization(&*task, &*n, &*arr, &k);
+            *n = *n - 1;
+            printf("Wetwetwewt    %d   %d\n", *n, k);
+            array_output(&*n, &*arr, &k);
         }
         if (*task == 2){
             printf("You are starting the insertion\n");
@@ -27,17 +29,25 @@ void dialogue(int* task, int* n){
             int y2 = input_int(&numb_insert);
             printf("Error code ---> %d\n", y2);
 
-            insert(&*arr, ind_insert, numb_insert, &*n);
-            array_output(&*n, &*arr);
+            arr = insert(&*arr, ind_insert, numb_insert, &*n, &k);
+            array_output(&*n, &*arr, &k);
         }
         if (*task == 3){
-                
+            printf("You are starting deleting\n");
+            int ind_delete;
+            printf("Enter the index which you want to delete:\n");
+            int y3 = input_int_for_ind_delete(&ind_delete, &*n);
+            printf("Error code ---> %d\n", y3);
+
+            arr = delete(&*arr, &*n, ind_delete, &k);
+            printf("        %d", k);
+            array_output(&*n, &*arr, &k);
         }
         if (*task == 4){
                 
         }
         if (*task == 5){
-            array_output(&*n, &*arr);
+            array_output(&*n, &*arr, &k);
         }
     }
         if (*task == 6){
