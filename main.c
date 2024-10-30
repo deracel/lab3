@@ -5,6 +5,6 @@
 int main(){ 
     int task = 0;
     int n = 1;//size of array
-    dialogue(&task, &n);
+    dialogue(&task, &n);    
     return 0;
 }

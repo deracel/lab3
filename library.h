@@ -10,3 +10,4 @@ int input_int_for_ind_insert(int* ind_insert);
 int input_int_for_ind_delete(int* ind_delete, int* n);
 void* delete(int* arr, int* n, int ind_delete, int* k);//delete number from array
 void greeting();
+void* multiples(int* arr, int* n, int* k);

@@ -22,6 +22,7 @@ void* delete(int* arr, int *n, int ind_delete, int* k){
         }
         *k = *k - N;
         arr = newArr;
+        free(newArr);
     }
     return arr;
 } 
