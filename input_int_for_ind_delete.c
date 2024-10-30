@@ -12,7 +12,7 @@ int input_int_for_ind_delete(int *intx, int* n){
 		c = scanf("%d", &*intx);
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
-            printf("Error code for insert ---> %d\n", sost);
+            printf("                                         Error code for insert ---> %d\n", sost);
             }
 		while ((a = getchar()) != '\n' && a != EOF){
         	if((a < 48 || a > 57) && a != -1){
@@ -21,11 +21,11 @@ int input_int_for_ind_delete(int *intx, int* n){
         }  
         if (c == 0 || kol != 0){//incorrect input
             sost = 1;
-            printf("Error code for insert ---> %d\n", sost);
+            printf("                                         Error code for insert ---> %d\n", sost);
         }
         if ((*intx < 0 || *intx >= *n) && kol == 0 && c != EOF){//value out of range
             sost = 2;
-            printf("Error code for insert ---> %d\n", sost);
+            printf("                                         Error code for insert ---> %d\n", sost);
         }
         if (*intx >=0 && *intx < *n && kol == 0){//correct input
             sost = 0;

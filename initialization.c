@@ -19,8 +19,13 @@ void* initialization(int* task, int* n, int* arr, int* k){
             if (input == 0){
                 break;
             }
-            printf("Error code for initialization ---> %d    ", y);
+            if (*k != *n){
+                printf("                                         Error code for initialization ---> %d    ", y);
+            }
             arr[i] = input;
+            if (*k != *n){
+                array_output(&*n, &*arr, &*k);
+            }
             /*printf("запись числа %d по индексу = %d, массив имеет длину = %d\n", arr[i], i, *n);*/
             /*array_output(&*n, &*arr);*/
             i = i + 1;
@@ -38,8 +43,10 @@ void* initialization(int* task, int* n, int* arr, int* k){
             *n = *n - 1;
             arr = newArr;
             /*array_output(&*n, &*arr);*/
+            printf("                                         Error code for initialization ---> 0    ");
+            array_output(&*n, &*arr, &*k);
         }
-        array_output(&*n, &*arr, &*k);
+        /*array_output(&*n, &*arr, &*k);*/
         *n = *n + 1;
     }
     return arr;

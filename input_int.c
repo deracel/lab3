@@ -12,7 +12,7 @@ int input_int(int *input){
         sost = 0;
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
-            printf("Error code for input ---> %d\n", sost);
+            printf("                                         Error code for input ---> %d\n", sost);
             }
 		while ((a = getchar()) != '\n' && a != EOF){
             if((a < 48 || a > 57) && a != -1){
@@ -22,7 +22,7 @@ int input_int(int *input){
         
         if (c == 0 || kol != 0){//некорректный ввод
             sost = 1;
-            printf("Error code for input ---> %d\n", sost);
+            printf("                                         Error code for input ---> %d\n", sost);
         } 
     }
     return sost;

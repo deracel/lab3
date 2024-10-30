@@ -9,13 +9,13 @@ void dialogue(int* task, int* n){
     while (*task != 6){
         greeting();
         int y = input_int_for_task(&*task);
-        printf("Error code for command ---> %d\n", y);
+        printf("Error code for command ---> %d\n\n", y);
         if (*task == 1){ 
             printf("You are starting initialization\n");
             *n = 1;
             arr = initialization(&*task, &*n, &*arr, &k);
             *n = *n - 1;
-            printf("Wetwetwewt    %d   %d\n", *n, k);
+            printf("                                         Error code for initialization ---> 0    ");
             array_output(&*n, &*arr, &k);
             printf("\n");
         }
