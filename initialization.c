@@ -21,12 +21,11 @@ void* initialization(int* task, int* n, int* arr, int* k){
             }
             printf("Error code for initialization ---> %d    ", y);
             arr[i] = input;
-            printf("запись числа %d по индексу = %d, массив имеет длину = %d\n", arr[i], i, *n);
+            /*printf("запись числа %d по индексу = %d, массив имеет длину = %d\n", arr[i], i, *n);*/
             /*array_output(&*n, &*arr);*/
             i = i + 1;
         }
         if (*k < *n){
-            printf ("ПОШЛА ВОЗЬНЯ! k + N = %d\n", *k + N);
             int* newArr = (int*)calloc((*k + N), (*k + N) * sizeof(int));
             if (newArr == NULL){
                 printf("An error occurred while allocating memory\n");

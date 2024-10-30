@@ -7,6 +7,7 @@ void dialogue(int* task, int* n){
     int* arr = (int*)calloc(N, N * sizeof(int));
     int k = N;
     while (*task != 6){
+        greeting();
         int y = input_int_for_task(&*task);
         printf("Error code for command ---> %d\n", y);
         if (*task == 1){ 
@@ -16,6 +17,7 @@ void dialogue(int* task, int* n){
             *n = *n - 1;
             printf("Wetwetwewt    %d   %d\n", *n, k);
             array_output(&*n, &*arr, &k);
+            printf("\n");
         }
         if (*task == 2){
             printf("You are starting the insertion\n");
@@ -31,6 +33,7 @@ void dialogue(int* task, int* n){
 
             arr = insert(&*arr, ind_insert, numb_insert, &*n, &k);
             array_output(&*n, &*arr, &k);
+            printf("\n");
         }
         if (*task == 3){
             printf("You are starting deleting\n");
@@ -40,8 +43,8 @@ void dialogue(int* task, int* n){
             printf("Error code ---> %d\n", y3);
 
             arr = delete(&*arr, &*n, ind_delete, &k);
-            printf("        %d", k);
             array_output(&*n, &*arr, &k);
+            printf("\n");
         }
         if (*task == 4){
                 
