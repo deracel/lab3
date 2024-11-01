@@ -10,5 +10,6 @@ void changedelete(int** arr, int* n, int* k){
         }
         *k = *k - N;
         *arr = newArr;
+        
     }
 }   

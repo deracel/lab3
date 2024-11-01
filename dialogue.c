@@ -9,7 +9,7 @@ void dialogue(int* task, int* n){
     int* arr;
     while (*task != 6){
         greeting();
-        int y = input_int_for_task(&*task);
+        int y = input_int_for_task(task);
         printf("Error code for command ---> %d\n\n", y);
         if (*task == 1){ 
             p = p + 1;
@@ -21,10 +21,10 @@ void dialogue(int* task, int* n){
             arr = (int*)malloc(N * sizeof(int));
             printf("You are starting initialization\n");
             *n = 1;
-            arr = initialization(&*task, &*n, &*arr, &k);
+            arr = initialization(task, n, arr, &k);
             *n = *n - 1;
             printf("                                       | Error code for initialization ---> 0    ");
-            array_output(&*n, &*arr, &k);
+            array_output(n, arr, &k);
             printf("                                       | Capacity = %d, size = %d\n", k, *n);
             printf("\n");
         }
@@ -85,16 +85,21 @@ void dialogue(int* task, int* n){
         if (*task == 5){
             if(p != 0){
                 printf("                                         ");
-                array_output(&*n, &*arr, &k);
-                printf("                                       | Capacity = %d, size = %d    ", k, *n);
+                printf("Array output:\n\n");
+                printf("                                       | [- ");
+                for (int i = 0; i < *n; ++i){
+                    printf("%d ", arr[i]);
+                }
+                printf("-]\n\n");
+                printf("                         2: insert an element into the array              | Capacity = %d, size = %d    ", k, *n);
             }
             else{
                 printf("<<Error: You have not initialized the array>>\n\n");
             }
         }
-    }
         if (*task == 6){
             return;
         }
+    }
     free(arr);
 }
