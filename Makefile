@@ -3,8 +3,8 @@ CFALGS = -c -Wall
 
 all: example
 
-example: array_output.o delete.o dialogue.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o
-	$(CC) array_output.o delete.o dialogue.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o -o example
+example: array_output.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o
+	$(CC) array_output.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o -o example
 
 array_output.o: array_output.c
 	$(CC) $(CFALGS) array_output.c
@@ -17,6 +17,12 @@ dialogue.o: dialogue.c
 
 greeting.o: greeting.c
 	$(CC) $(CFALGS) greeting.c
+
+changedelete.o: changedelete.c
+	$(CC) $(CFALGS) changedelete.c
+
+changeincert.o: changeincert.c
+	$(CC) $(CFALGS) changeincert.c
 
 incert.o: incert.c
 	$(CC) $(CFALGS) incert.c

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "library.h"
 #define N 10
@@ -14,13 +15,13 @@ void* initialization(int* task, int* n, int* arr, int* k){
         }
         printf("Error code for initialization ---> %d    ", y);*/
         if (*k >= *n){
-            printf("Enter the value of the array\n");
+            printf("Value: ");
             int y = input_int(&input);
             if (input == 0){
                 break;
             }
             if (*k != *n){
-                printf("                                         Error code for initialization ---> %d    ", y);
+                printf("                                       | Error code for initialization ---> %d    ", y);
             }
             arr[i] = input;
             if (*k != *n){
@@ -31,7 +32,8 @@ void* initialization(int* task, int* n, int* arr, int* k){
             i = i + 1;
         }
         if (*k < *n){
-            int* newArr = (int*)calloc((*k + N), (*k + N) * sizeof(int));
+            /*int* newArr = (int*)calloc((*k + N), (*k + N) * sizeof(int));*/
+            int* newArr = (int*)malloc((*k + N) * sizeof(int));
             if (newArr == NULL){
                 printf("An error occurred while allocating memory\n");
                 break;
@@ -43,7 +45,7 @@ void* initialization(int* task, int* n, int* arr, int* k){
             *n = *n - 1;
             arr = newArr;
             /*array_output(&*n, &*arr);*/
-            printf("                                         Error code for initialization ---> 0    ");
+            printf("                                       | Error code for initialization ---> 0    ");
             array_output(&*n, &*arr, &*k);
         }
         /*array_output(&*n, &*arr, &*k);*/

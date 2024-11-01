@@ -12,7 +12,7 @@ int input_int_for_task(int *intx){
 		c = scanf("%d", &*intx);
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
-            printf("Error code for command ---> %d\n", sost);
+            printf("                                       | Error code for command ---> %d\n", sost);
             }
 		while ((a = getchar()) != '\n' && a != EOF){
         	if((a < 48 || a > 57) && a != -1){
@@ -21,11 +21,11 @@ int input_int_for_task(int *intx){
         }  
         if (c == 0 || kol != 0){//incorrect input
             sost = 1;
-            printf("Error code for command ---> %d\n", sost);
+            printf("                                       | Error code for command ---> %d\n", sost);
         }
         if ((*intx < 1 || *intx > 6) && kol == 0 && c != EOF){//value out of range
             sost = 2;
-            printf("Error code for command ---> %d\n", sost);
+            printf("                                       | Error code for command ---> %d\n", sost);
         }
         if ((*intx >=1 && *intx <= 6) && kol == 0){//correct input
             sost = 0;

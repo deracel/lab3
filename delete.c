@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include "library.h"
 
-void* delete(int* arr, int *n, int ind_delete, int* k){
+void delete(int* arr, int *n, int ind_delete, int* k){
+
     if (0 <= ind_delete && ind_delete < *n){
         int i = ind_delete;
         while (i < *n){
@@ -11,18 +12,4 @@ void* delete(int* arr, int *n, int ind_delete, int* k){
         }
         *n = *n - 1;
     }
-    if (*n < *k - N){
-        int* newArr = (int*)calloc((*k - N), (*k - N) * sizeof(int));
-        if (newArr == NULL){
-            printf("An error occurred while allocating memory\n");
-                
-        }
-        for (int o = 0; o < (*k - N); ++o){
-            newArr[o] = arr[o];
-        }
-        *k = *k - N;
-        arr = newArr;
-        free(newArr);
-    }
-    return arr;
-} 
+}
