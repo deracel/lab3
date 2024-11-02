@@ -10,6 +10,6 @@ void changeincert(int** arr, int* n, int* k){
         }
         *k = *k + N;
         *arr = newArr;
-      
+        free(newArr);
     }
 }   

@@ -7,6 +7,7 @@
 void* initialization(int* task, int* n, int* arr, int* k){
     int i = 0;//index of array
     int input;
+    int* newArr;
     while (1){
         if (*k >= *n){
             printf("Value: ");
@@ -25,7 +26,7 @@ void* initialization(int* task, int* n, int* arr, int* k){
             i = i + 1;
         }
         if (*k < *n){
-            int* newArr = (int*)malloc((*k + N) * sizeof(int));
+            newArr = (int*)malloc((*k + N) * sizeof(int));
             if (newArr == NULL){
                 printf("An error occurred while allocating memory\n");
                 break;

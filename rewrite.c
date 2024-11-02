@@ -21,6 +21,7 @@ void* rewrite(int* arr, int* n, int* k){
         }
         newArr = nArr;
         *k = *k - N;
+        
     }
     return newArr;
 }

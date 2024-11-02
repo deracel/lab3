@@ -80,10 +80,12 @@ void dialogue(int* task, int* n){
                 printf("                                       | Sorted array:    ");
                 array_output9(&nom, arr9);
                 printf("                                       | Capacity = %d, size = %d    ", k1, nom);
+                printf("\n");
+                printf("\n");
                 nom = 0;
                 free(arr9);
-                printf("\n");
                 arr = rewrite(arr, n, &k);
+                printf("                                       | Changed array:   ");
                 array_output(n, arr, &k);
                 printf("                                       | Capacity = %d, size = %d\n", k, *n);
                 printf("\n");
@@ -94,14 +96,10 @@ void dialogue(int* task, int* n){
         }
         if (*task == 5){
             if(p != 0){
-                printf("                                         ");
-                printf("Array output:\n\n");
-                printf("                                       | [- ");
-                for (int i = 0; i < *n; ++i){
-                    printf("%d ", arr[i]);
-                }
-                printf("-]\n\n");
+                printf("                                       | ");
+                array_output(n, arr, &k);
                 printf("                                       | Capacity = %d, size = %d    ", k, *n);
+                printf("\n");
             }
             else{
                 printf("<<Error: You have not initialized the array>>\n\n");
