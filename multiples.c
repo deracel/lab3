@@ -2,32 +2,25 @@
 #include <stdlib.h>
 #include "library.h"
 
-void* multiples(int* arr, int* n, int* k){
+void* multiples(int* arr, int* n, int* k1, int* nom){
+    *nom = 0;
     int kol = *n;
-    int nom = 0;
-    int* newArr = (int*)calloc(*k, *k * sizeof(int));
+    int* newArr = (int*)malloc(*k1 * sizeof(int));
     int s = 0;//index of newArr
     for(int j = 0; j < kol; ++j){
         if (arr[j] % 9 == 0){
             newArr[s] = arr[j];
             s += 1;
-            nom += 1;
+            *nom += 1;
         }
     }
-    arr = newArr;
-    /*for (int i = 0; i < *k; ++i){
-        printf("%d ", arr[i]);
-    }*/
-    if (nom < *k - N){
-        int* nArr = (int*)calloc((*k - N), (*k - N) * sizeof(int));
-        for (int o = 0; o < (*k - N); ++o){
-            nArr[o] = arr[o];
+    if (*nom < *k1 - N){
+        int* nArr = (int*)malloc((*k1 - N) * sizeof(int));
+        for (int o = 0; o < (*k1 - N); ++o){
+            nArr[o] = newArr[o];
         }
-        *k = *k - N;
-        arr = nArr;
+        newArr = nArr;
+        *k1 = *k1 - N;
     }
-    /*for (int i = 0; i < *k; ++i){
-        printf("%d ", arr[i]);
-    }*/
-    return arr;
+    return newArr;
 }

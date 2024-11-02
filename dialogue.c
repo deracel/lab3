@@ -74,9 +74,19 @@ void dialogue(int* task, int* n){
         }
         if (*task == 4){
             if(p != 0){
-                arr = multiples(&*arr, &*n, &k);
+                int nom;
+                int k1 = k;
+                int* arr9 = multiples(arr, n, &k1, &nom);
                 printf("                                       | Sorted array:    ");
-                array_output(&*n, &*arr, &k);
+                array_output9(&nom, arr9);
+                printf("                                       | Capacity = %d, size = %d    ", k1, nom);
+                nom = 0;
+                free(arr9);
+                printf("\n");
+                arr = rewrite(arr, n, &k);
+                array_output(n, arr, &k);
+                printf("                                       | Capacity = %d, size = %d\n", k, *n);
+                printf("\n");
             }
             else{
                 printf("<<Error: You have not initialized the array>>\n\n");
@@ -91,7 +101,7 @@ void dialogue(int* task, int* n){
                     printf("%d ", arr[i]);
                 }
                 printf("-]\n\n");
-                printf("                         2: insert an element into the array              | Capacity = %d, size = %d    ", k, *n);
+                printf("                                       | Capacity = %d, size = %d    ", k, *n);
             }
             else{
                 printf("<<Error: You have not initialized the array>>\n\n");

@@ -3,11 +3,14 @@ CFALGS = -c -Wall
 
 all: example
 
-example: array_output.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o
-	$(CC) array_output.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o -o example
+example: array_output.o array_output9.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o rewrite.o
+	$(CC) array_output.o array_output9.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o rewrite.o -o example
 
 array_output.o: array_output.c
 	$(CC) $(CFALGS) array_output.c
+
+array_output9.o: array_output9.c
+	$(CC) $(CFALGS) array_output9.c
 
 delete.o: delete.c
 	$(CC) $(CFALGS) delete.c
@@ -50,6 +53,9 @@ main.o: main.c
 
 multiples.o: multiples.c
 	$(CC) $(CFALGS) multiples.c
+
+rewrite.o: rewrite.c
+	$(CC) $(CFALGS) rewrite.c
 
 clean:
 	rm -rf *.o example
