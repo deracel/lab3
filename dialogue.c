@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include "library.h"
 #define N 10
+#define K 5
 
 void dialogue(int* task, int* n){
-    int k = N;
+    int k = K;
     int p = 0;
     int* arr;
     while (*task != 6){
@@ -15,12 +16,13 @@ void dialogue(int* task, int* n){
             p = p + 1;
             if (p > 1){
                 free(arr);
-                k = N;
+                k = K;
             }
             /*arr = (int*)calloc(N, N * sizeof(int));*/
-            arr = (int*)malloc(N * sizeof(int));
-            printf("You are starting initialization\n");
+            arr = (int*)malloc(K * sizeof(int));
+            printf("You are starting initialization (print '#' to end)\n");
             *n = 1;
+            /*free(arr);*/
             arr = initialization(task, n, arr, &k);
             *n = *n - 1;
             printf("                                       | Error code for initialization ---> 0    ");
@@ -62,7 +64,9 @@ void dialogue(int* task, int* n){
                 printf("                                       | Error code ---> %d    ", y3);
 
                 delete(arr, n, ind_delete, &k);
-                changedelete(&arr, n, &k);
+                if (*n < k - N){
+                    changedelete(&arr, n, &k);
+                }
                 array_output(n, arr, &k);
                 printf("                                       | Capacity = %d, size = %d\n", k, *n);
                 printf("\n");
@@ -75,6 +79,7 @@ void dialogue(int* task, int* n){
         if (*task == 4){
             if(p != 0){
                 int nom;
+                int* nArr;
                 int k1 = k;
                 int* arr9 = multiples(arr, n, &k1, &nom);
                 printf("                                       | Sorted array:    ");
@@ -111,3 +116,5 @@ void dialogue(int* task, int* n){
     }
     free(arr);
 }
+
+

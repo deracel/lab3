@@ -3,17 +3,14 @@ CFALGS = -c -Wall
 
 all: example
 
-example: array_output.o array_output9.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o rewrite.o
-	$(CC) array_output.o array_output9.o delete.o dialogue.o changedelete.o changeincert.o greeting.o initialization.o input_int_for_ind_delete.o input_int_for_ind_insert.o input_int_for_task.o input_int.o insert.o main.o multiples.o rewrite.o -o example
+example: arrops.o change.o dialogue.o greeting.o input.o main.o output.o
+	$(CC) arrops.o change.o dialogue.o greeting.o input.o main.o output.o -o example
 
-array_output.o: array_output.c
-	$(CC) $(CFALGS) array_output.c
+arrops.o: arrops.c
+	$(CC) $(CFALGS) arrops.c
 
-array_output9.o: array_output9.c
-	$(CC) $(CFALGS) array_output9.c
-
-delete.o: delete.c
-	$(CC) $(CFALGS) delete.c
+change.o: change.c
+	$(CC) $(CFALGS) change.c
 
 dialogue.o: dialogue.c
 	$(CC) $(CFALGS) dialogue.c
@@ -21,41 +18,14 @@ dialogue.o: dialogue.c
 greeting.o: greeting.c
 	$(CC) $(CFALGS) greeting.c
 
-changedelete.o: changedelete.c
-	$(CC) $(CFALGS) changedelete.c
-
-changeincert.o: changeincert.c
-	$(CC) $(CFALGS) changeincert.c
-
-incert.o: incert.c
-	$(CC) $(CFALGS) incert.c
-
-initialization.o: initialization.c
-	$(CC) $(CFALGS) initialization.c
-
-input_int_for_ind_delete.o: input_int_for_ind_delete.c
-	$(CC) $(CFALGS) input_int_for_ind_delete.c
-
-input_int_for_ind_insert.o: input_int_for_ind_insert.c
-	$(CC) $(CFALGS) input_int_for_ind_insert.c
-
-input_int_for_task.o: input_int_for_task.c
-	$(CC) $(CFALGS) input_int_for_task.c
-
-input_int.o: input_int.c
-	$(CC) $(CFALGS) input_int.c
-
-insert.o: insert.c
-	$(CC) $(CFALGS) insert.c
+input.o: input.c
+	$(CC) $(CFALGS) input.c
 
 main.o: main.c
 	$(CC) $(CFALGS) main.c
 
-multiples.o: multiples.c
-	$(CC) $(CFALGS) multiples.c
-
-rewrite.o: rewrite.c
-	$(CC) $(CFALGS) rewrite.c
+output.o: output.c
+	$(CC) $(CFALGS) output.c
 
 clean:
 	rm -rf *.o example
