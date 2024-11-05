@@ -10,7 +10,7 @@ void dialogue(int* task, int* n){
     int* arr;
     while (*task != 6){
         greeting();
-        int y = input_int_for_task(task);
+        int y = input_int_for_task(task, arr);
         printf("Error code for command ---> %d\n\n", y);
         if (*task == 1){ 
             p = p + 1;
@@ -36,11 +36,11 @@ void dialogue(int* task, int* n){
                 int ind_insert = 0;
                 int numb_insert = 0;
                 printf("Index: ");
-                int y1 = input_int_for_ind_insert(&ind_insert);
+                int y1 = input_int_for_ind_insert(&ind_insert, arr);
                 printf("                                       | Error code ---> %d    \n", y1);
             
                 printf("Number: ");
-                int y2 = input_int(&numb_insert);
+                int y2 = input_int(&numb_insert, arr);
                 printf("                                       | Error code ---> %d    ", y2);
                 if (*n + 1 > k){
                     changeincert(&arr, n, &k);
@@ -60,7 +60,7 @@ void dialogue(int* task, int* n){
                 printf("You are starting deleting\n");
                 int ind_delete;
                 printf("Enter the index which you want to delete:\n");
-                int y3 = input_int_for_ind_delete(&ind_delete, &*n);
+                int y3 = input_int_for_ind_delete(&ind_delete, n, arr);
                 printf("                                       | Error code ---> %d    ", y3);
 
                 delete(arr, n, ind_delete, &k);
@@ -79,7 +79,6 @@ void dialogue(int* task, int* n){
         if (*task == 4){
             if(p != 0){
                 int nom;
-                int* nArr;
                 int k1 = k;
                 int* arr9 = multiples(arr, n, &k1, &nom);
                 printf("                                       | Sorted array:    ");
@@ -111,10 +110,10 @@ void dialogue(int* task, int* n){
             }
         }
         if (*task == 6){
+            free(arr);
             return;
         }
     }
-    free(arr);
 }
 
 

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "library.h"
 
-int input_int_for_ind_delete(int *intx, int* n){
+int input_int_for_ind_delete(int *intx, int* n, int* arr){
 	int c = 0;
 	int a;
 	int sost = 0;
@@ -12,6 +12,7 @@ int input_int_for_ind_delete(int *intx, int* n){
 		c = scanf("%d", &*intx);
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
+            free(arr);
             printf("                                       | Error code for insert ---> %d\n", sost);
             }
 		while ((a = getchar()) != '\n' && a != EOF){
@@ -34,7 +35,7 @@ int input_int_for_ind_delete(int *intx, int* n){
     return sost;
 }
 
-int input_int_for_ind_insert(int *intx){
+int input_int_for_ind_insert(int *intx, int* arr){
 	int c = 0;
 	int a;
 	int sost = 0;
@@ -44,6 +45,7 @@ int input_int_for_ind_insert(int *intx){
 		c = scanf("%d", &*intx);
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
+            free(arr);
             printf("                                       | Error code for insert ---> %d\n", sost);
             }
 		while ((a = getchar()) != '\n' && a != EOF){
@@ -66,7 +68,7 @@ int input_int_for_ind_insert(int *intx){
     return sost;
 }
 
-int input_int_for_task(int *intx){
+int input_int_for_task(int *intx, int* arr){
 	int c = 0;
 	int a;
 	int sost = 0;
@@ -77,7 +79,9 @@ int input_int_for_task(int *intx){
 		c = scanf("%d", &*intx);
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
+            free(arr);
             printf("                                       | Error code for command ---> %d\n", sost);
+        
             }
 		while ((a = getchar()) != '\n' && a != EOF){
         	if((a < 48 || a > 57) && a != -1){
@@ -99,7 +103,7 @@ int input_int_for_task(int *intx){
     return sost;
 }
 
-int input_int(int *input){
+int input_int(int *input, int* arr){
 	int c = 0;
 	int a;
 	int sost = 0;
@@ -110,6 +114,7 @@ int input_int(int *input){
         sost = 0;
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
+            free(arr);
             printf("                                         Error code for input ---> %d\n", sost);
             }
 		while ((a = getchar()) != '\n' && a != EOF){
@@ -127,7 +132,7 @@ int input_int(int *input){
 }
 
 
-int input_int_init(int *input, int* output){
+int input_int_init(int *input, int* output, int* arr){
 	int c = 0;
 	int a;
 	int sost = 0;
@@ -138,6 +143,7 @@ int input_int_init(int *input, int* output){
         sost = 0;
 		if (c == EOF && a != EOF){//EOF
             sost = 3;
+            free(arr);
             printf("                                         Error code for input ---> %d\n", sost);
             }
 		while ((a = getchar()) != '\n' && a != EOF){

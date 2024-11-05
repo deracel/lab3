@@ -12,7 +12,7 @@ void* initialization(int* task, int* n, int* arr, int* k){
     while (1){
         if (*k >= *n){
             printf("Value: ");
-            int y = input_int_init(&input, &output);
+            int y = input_int_init(&input, &output, arr);
             if (output == 1){
                 break;
             }
@@ -26,7 +26,7 @@ void* initialization(int* task, int* n, int* arr, int* k){
             }
             i = i + 1;
         }
-        if (*k < *n){
+        if (*k <= *n){
             newArr = (int*)malloc((*k + N) * sizeof(int));
             if (newArr == NULL){
                 printf("An error occurred while allocating memory\n");
@@ -36,7 +36,7 @@ void* initialization(int* task, int* n, int* arr, int* k){
                 newArr[o] = arr[o];
             }
             *k = *k + N;
-            *n = *n - 1;
+            /**n = *n - 1;*/
             free(arr);
             arr = newArr;
             printf("                                       | Error code for initialization ---> 0    ");
@@ -103,9 +103,10 @@ void* rewrite(int* arr, int* n, int* k){
         *k = *k - N;
     }
     int* nArr = (int*)malloc((*k) * sizeof(int));
-    for (int o = 0; o < (*k); ++o){
+    for (int o = 0; o < /*(*k)*/*n; ++o){
         nArr[o] = newArr[o];
     }
+
     free(newArr);
     return nArr;
 }
