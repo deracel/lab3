@@ -4,7 +4,7 @@
 #include "library.h"
 #define N 10
 
-void* initialization(int* task, int* n, int* arr, int* k){
+void* initialization(int* task, int* n, int* arr, int* k){/* */
     int i = 0;//index of array
     int input;
     int output = 0;
@@ -36,7 +36,6 @@ void* initialization(int* task, int* n, int* arr, int* k){
                 newArr[o] = arr[o];
             }
             *k = *k + N;
-            /**n = *n - 1;*/
             free(arr);
             arr = newArr;
             printf("                                       | Error code for initialization ---> 0    ");
@@ -48,7 +47,7 @@ void* initialization(int* task, int* n, int* arr, int* k){
     return arr;
 }
 
-void insert(int* arr, int ind_insert, int numb_insert, int* n, int* k){
+void insert(int* arr, int ind_insert, int numb_insert, int* n, int* k){/* */
     if(ind_insert > *k - 1){
         ind_insert = *k;
     }
@@ -61,10 +60,14 @@ void insert(int* arr, int ind_insert, int numb_insert, int* n, int* k){
     arr[i + 1] = numb_insert;
 }
 
-void* multiples(int* arr, int* n, int* k1, int* nom){
+void* multiples(int* arr, int* n, int* k1, int* nom){/* */
     *nom = 0;
     int kol = *n;
     int* newArr = (int*)malloc(*k1 * sizeof(int));
+    if (newArr == NULL){
+            printf("An error occurred while allocating memory\n");
+            return arr;
+    }
     int s = 0;//index of newArr
     for(int j = 0; j < kol; ++j){
         if (arr[j] % 9 == 0 && arr[j] != 0){
@@ -77,7 +80,11 @@ void* multiples(int* arr, int* n, int* k1, int* nom){
         *k1 = *k1 - N;
     }
     int* nArr = (int*)malloc((*k1) * sizeof(int));
-    for (int o = 0; o < (*k1); ++o){
+    if (nArr == NULL){
+        printf("An error occurred while allocating memory\n");
+        return arr;
+    }
+    for (int o = 0; o < *k1; ++o){
         nArr[o] = newArr[o];
     }
     free(newArr);
@@ -86,10 +93,14 @@ void* multiples(int* arr, int* n, int* k1, int* nom){
 }
 
 
-void* rewrite(int* arr, int* n, int* k){
+void* rewrite(int* arr, int* n, int* k){/* */
     int kol = *n;
     *n = 0;
     int* newArr = malloc(*k * sizeof(int));
+    if (newArr == NULL){
+        printf("An error occurred while allocating memory\n");
+        return arr;
+    }
     int s = 0;//index of newArr
     for(int j = 0; j < kol; ++j){
         if (arr[j] % 9 != 0 || arr[j] == 0){
@@ -103,6 +114,10 @@ void* rewrite(int* arr, int* n, int* k){
         *k = *k - N;
     }
     int* nArr = (int*)malloc((*k) * sizeof(int));
+    if (nArr == NULL){
+        printf("An error occurred while allocating memory\n");
+        return newArr;
+    }
     for (int o = 0; o < /*(*k)*/*n; ++o){
         nArr[o] = newArr[o];
     }
@@ -112,7 +127,7 @@ void* rewrite(int* arr, int* n, int* k){
 }
 
 
-void delete(int* arr, int *n, int ind_delete, int* k){
+void delete(int* arr, int *n, int ind_delete, int* k){/* */
 
     if (0 <= ind_delete && ind_delete < *n){
         int i = ind_delete;

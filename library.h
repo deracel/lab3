@@ -1,5 +1,5 @@
 #ifndef LIBRARY_H
-#define LYBRARY_H
+#define LIBRARY_H
 #define N 10
 
 void dialogue(int* task, int* n);//dialogue window

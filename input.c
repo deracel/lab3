@@ -7,7 +7,7 @@ int input_int_for_ind_delete(int *intx, int* n, int* arr){
 	int a;
 	int sost = 0;
 	int kol = 1;
-	while(c != 1  ||  kol != 0 || *intx < 0 ){ 
+	while(c != 1  ||  kol != 0 || *intx < 0 || *intx >= *n){ 
 		kol = 0;
 		c = scanf("%d", &*intx);
 		if (c == EOF && a != EOF){//EOF
@@ -137,7 +137,7 @@ int input_int_init(int *input, int* output, int* arr){
 	int a;
 	int sost = 0;
 	int kol = 1;
-	while(c != 1  ||  kol != 0){ 
+	while(c != 1  ||  kol != 0){
 		kol = 0;
 		c = scanf("%d", &*input);
         sost = 0;

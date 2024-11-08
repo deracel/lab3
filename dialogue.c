@@ -18,11 +18,9 @@ void dialogue(int* task, int* n){
                 free(arr);
                 k = K;
             }
-            /*arr = (int*)calloc(N, N * sizeof(int));*/
             arr = (int*)malloc(K * sizeof(int));
             printf("You are starting initialization (print '#' to end)\n");
             *n = 1;
-            /*free(arr);*/
             arr = initialization(task, n, arr, &k);
             *n = *n - 1;
             printf("                                       | Error code for initialization ---> 0    ");
